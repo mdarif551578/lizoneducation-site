@@ -58,14 +58,20 @@ export default function Home() {
     <div className="flex flex-col">
       <section className="relative w-full py-20 md:py-32 lg:py-40">
         <Image
-          src="https://placehold.co/1920x1080.png"
+          src="/achieve_dream.png"
           alt="Students learning in a classroom"
           layout="fill"
           objectFit="cover"
           className="absolute inset-0 -z-10"
           data-ai-hint="students learning"
         />
-        <div className="absolute inset-0 -z-10 bg-black/80" />
+        {/* <div className="absolute inset-0 -z-10 bg-black/70" /> */}
+        <div
+          className="absolute inset-0 -z-10"
+          style={{
+            backgroundImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.7) 100%)',
+          }}
+        />
         <div className="container mx-auto px-4 md:px-6 text-center">
           <div className="max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white font-headline">

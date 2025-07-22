@@ -63,21 +63,21 @@ export default function ContactPage() {
                 <MapPin className="h-6 w-6 text-primary mt-1" />
                 <div>
                   <h3 className="font-semibold">Address</h3>
-                  <p className="text-muted-foreground">Zindabazar Point, Sylhet, Bangladesh</p>
+                  <p className="text-muted-foreground">51/102 South Basabo, Kazi Office Road <br /> (Beside 'Morning Bell' school & Brac Office), Buddha Mandir, Dhaka-1214</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <Phone className="h-6 w-6 text-primary mt-1" />
                 <div>
                   <h3 className="font-semibold">Phone</h3>
-                  <a href="tel:+880123456789" className="text-muted-foreground hover:text-primary">+880 123 456 789</a>
+                  <a href="tel:+8801611-611139" className="text-muted-foreground hover:text-primary">01611-611139</a>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <Mail className="h-6 w-6 text-primary mt-1" />
                 <div>
                   <h3 className="font-semibold">Email</h3>
-                   <a href="mailto:info@lizoneducation.com" className="text-muted-foreground hover:text-primary">info@lizoneducation.com</a>
+                   <a href="mailto:lizonedu@gmail.com" className="text-muted-foreground hover:text-primary">lizonedu@gmail.com</a>
                 </div>
               </div>
             </CardContent>

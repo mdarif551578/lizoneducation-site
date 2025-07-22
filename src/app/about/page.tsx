@@ -70,12 +70,12 @@ export default function AboutPage() {
                 Founded on the principles of excellence and integrity, Lizon Education has grown from a small classroom to a leading IELTS center in the region, committed to helping you unlock a world of opportunities.
               </p>
             </div>
-            <div className="relative h-80 w-full rounded-lg shadow-xl overflow-hidden">
+            <div className="relative h-60 w-full rounded-lg shadow-xl overflow-hidden">
               <Image
-                src="https://placehold.co/600x400.png"
+                src="/you_fly.png"
                 alt="Lizon Education classroom"
                 layout="fill"
-                objectFit="cover"
+                objectFit="fill"
                 data-ai-hint="modern classroom"
               />
             </div>
@@ -134,7 +134,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative h-96 w-full rounded-lg shadow-xl overflow-hidden">
               <Image
-                src="https://placehold.co/600x450.png"
+                src="/free_consultation.jpg"
                 alt="Lizon Education facility"
                 layout="fill"
                 objectFit="cover"

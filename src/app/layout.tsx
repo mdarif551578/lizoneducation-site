@@ -29,7 +29,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={cn('font-body antialiased bg-background text-foreground min-h-screen flex flex-col')}>
+      <body className={cn('font-body antialiased bg-background text-foreground min-h-screen flex flex-col lg:px-20')}>
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />
