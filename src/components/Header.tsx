@@ -44,11 +44,11 @@ const Header = () => {
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
-                <Menu />
+                <Menu aria-hidden="true" />
                 <span className="sr-only">Open Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right">
+            <SheetContent side="right" className="w-[280px]">
                 <SheetHeader className="p-4 border-b flex-row items-center justify-between">
                    <SheetTitle>
                      <Link href="/" className="flex items-center gap-2 font-bold text-lg" onClick={() => setIsOpen(false)}>
