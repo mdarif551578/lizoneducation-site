@@ -65,7 +65,7 @@ export default function Home() {
           className="absolute inset-0 -z-10"
           data-ai-hint="students learning"
         />
-        <div className="absolute inset-x-0 bottom-0 h-1/2 -z-10 bg-gradient-to-t from-black/80 to-transparent" />
+        <div className="absolute inset-0 -z-10 bg-black/70" />
         <div className="container mx-auto px-4 md:px-6 text-center">
           <div className="max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white font-headline">
