@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, BookOpenCheck, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -45,19 +45,22 @@ const Header = () => {
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
                 <Menu />
+                <span className="sr-only">Open Menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right">
-              <div className="flex flex-col h-full">
-                <div className="flex items-center justify-between p-4 border-b">
-                   <Link href="/" className="flex items-center gap-2 font-bold text-lg" onClick={() => setIsOpen(false)}>
-                    <BookOpenCheck className="h-6 w-6 text-primary" />
-                    <span>Lizon IELTS Hub</span>
-                  </Link>
+                <SheetHeader className="p-4 border-b flex-row items-center justify-between">
+                   <SheetTitle>
+                     <Link href="/" className="flex items-center gap-2 font-bold text-lg" onClick={() => setIsOpen(false)}>
+                      <BookOpenCheck className="h-6 w-6 text-primary" />
+                      <span>Lizon IELTS Hub</span>
+                    </Link>
+                   </SheetTitle>
                    <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
                       <X />
+                      <span className="sr-only">Close Menu</span>
                    </Button>
-                </div>
+                </SheetHeader>
                 <nav className="flex flex-col gap-4 p-4">
                   {navLinks.map((link) => (
                     <Link
@@ -73,7 +76,6 @@ const Header = () => {
                     </Link>
                   ))}
                 </nav>
-              </div>
             </SheetContent>
           </Sheet>
         </div>
