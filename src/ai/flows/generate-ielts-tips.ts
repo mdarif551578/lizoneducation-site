@@ -14,6 +14,10 @@ const GenerateIeltsTipsInputSchema = z.object({
   areaOfFocus: z
     .string()
     .describe("The specific area of focus for IELTS preparation (e.g., writing, speaking, reading, listening)."),
+  history: z.array(z.object({
+    role: z.enum(['user', 'model']),
+    content: z.array(z.object({text: z.string()}))
+  })).optional().describe("The conversation history between the user and the AI tutor."),
 });
 export type GenerateIeltsTipsInput = z.infer<typeof GenerateIeltsTipsInputSchema>;
 
@@ -30,11 +34,24 @@ const prompt = ai.definePrompt({
   name: 'generateIeltsTipsPrompt',
   input: {schema: GenerateIeltsTipsInputSchema},
   output: {schema: GenerateIeltsTipsOutputSchema},
-  prompt: `You are an expert IELTS tutor. Generate personalized IELTS preparation tips for the following area of focus:
+  prompt: `You are an expert IELTS tutor. Your role is to provide personalized IELTS preparation tips.
+The user has specified an area of focus.
+{{#if history}}
+Continue the conversation based on the history. Provide a helpful and concise response to the last user message.
+{{else}}
+Start by providing initial, comprehensive tips for the following area of focus.
+{{/if}}
 
 Area of Focus: {{{areaOfFocus}}}
 
-Tips:`, 
+{{#if history}}
+Conversation History:
+{{#each history}}
+{{#if (eq role 'user')}}User: {{content.[0].text}}{{/if}}
+{{#if (eq role 'model')}}Tutor: {{content.[0].text}}{{/if}}
+{{/each}}
+{{/if}}
+`,
 });
 
 const generateIeltsTipsFlow = ai.defineFlow(

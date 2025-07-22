@@ -1,5 +1,3 @@
-// This file is marked as a server-only module.
-// It is not included in the client-side bundle.
 'use server';
 
 import { generateIeltsTips as generateIeltsTipsFlow } from '@/ai/flows/generate-ielts-tips';
