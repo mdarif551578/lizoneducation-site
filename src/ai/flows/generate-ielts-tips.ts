@@ -36,20 +36,18 @@ const prompt = ai.definePrompt({
   output: {schema: GenerateIeltsTipsOutputSchema},
   prompt: `You are an expert IELTS tutor. Your role is to provide personalized IELTS preparation tips.
 The user has specified an area of focus.
+
 {{#if history}}
 Continue the conversation based on the history. Provide a helpful and concise response to the last user message.
-{{else}}
-Start by providing initial, comprehensive tips for the following area of focus.
-{{/if}}
 
-Area of Focus: {{{areaOfFocus}}}
-
-{{#if history}}
 Conversation History:
 {{#each history}}
 {{#if (eq role 'user')}}User: {{content.[0].text}}{{/if}}
 {{#if (eq role 'model')}}Tutor: {{content.[0].text}}{{/if}}
 {{/each}}
+
+{{else}}
+Start by providing initial, comprehensive tips for the following area of focus: {{{areaOfFocus}}}.
 {{/if}}
 `,
 });
