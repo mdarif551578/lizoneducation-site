@@ -16,14 +16,16 @@ This is a comprehensive website for Lizon Education, an IELTS coaching center. I
 - **UI**: [React](https://react.dev/), [shadcn/ui](https://ui.shadcn.com/), [Tailwind CSS](https://tailwindcss.com/)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 
-## Getting Started
+## Installation and Local Development
+
+Follow these steps to run the project on your local machine.
 
 ### Prerequisites
 
 - Node.js (v20 or later recommended)
 - An API key for Google AI.
 
-### Installation & Running Locally
+### Steps
 
 1.  **Clone the repository:**
     ```bash
@@ -37,13 +39,17 @@ This is a comprehensive website for Lizon Education, an IELTS coaching center. I
     ```
 
 3.  **Set up environment variables:**
-    Create a `.env` file in the root of the project and add your Google AI API key:
+    Create a `.env` file in the root of your project by copying the example. Then, add your Google AI API key.
+    ```bash
+    cp .env.example .env
     ```
-    GEMINI_API_KEY=your_api_key_here
+    Now, open the `.env` file and add your key:
+    ```
+    GEMINI_API_KEY=your_google_ai_api_key_here
     ```
 
 4.  **Run the development server:**
-    The application consists of the Next.js frontend and the Genkit AI flows. Run both concurrently in separate terminals.
+    The application consists of the Next.js frontend and the Genkit AI flows. You need to run both concurrently in separate terminals for the AI features to work locally.
 
     *   **Terminal 1 (Next.js App):**
         ```bash
@@ -55,9 +61,24 @@ This is a comprehensive website for Lizon Education, an IELTS coaching center. I
         ```bash
         npm run genkit:dev
         ```
-        This will start the Genkit development server, allowing the Next.js app to communicate with your AI flows.
+        This starts the Genkit development server, allowing the Next.js app to communicate with your AI flows.
 
-5.  **Build for production:**
+## Static Site Deployment (e.g., on Cloudflare Pages)
+
+This project is configured for static site generation, which means you can deploy it to any static hosting provider like Cloudflare Pages, Vercel, or Netlify.
+
+1.  **Build the static site:**
+    Run the build command. This will generate a static version of your site in the `out` directory.
     ```bash
     npm run build
     ```
+
+2.  **Deploy to Cloudflare Pages:**
+    - Log in to your Cloudflare dashboard.
+    - Go to **Workers & Pages** > **Create application** > **Pages** > **Upload assets**.
+    - Drag and drop the `out` folder generated in the previous step into the upload area.
+    - Click **Deploy site**. Cloudflare will handle the rest!
+
+    Alternatively, you can connect your Git repository (e.g., on GitHub) to Cloudflare Pages for automatic deployments.
+    - **Build command:** `npm run build`
+    - **Build output directory:** `out`
