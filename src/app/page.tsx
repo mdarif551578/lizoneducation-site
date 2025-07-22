@@ -152,8 +152,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="enroll" className="py-16 md:py-24 bg-primary/10">
-        <div className="container mx-auto px-4 md:px-6 text-center">
+      <section id="enroll" className="py-16 md:py-24 bg-primary/10 relative overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold font-headline text-white">Ready to Start Your Journey?</h2>
           <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
             Join Lizon Education today and take the first step towards achieving your academic and professional goals.
@@ -164,6 +164,14 @@ export default function Home() {
             </Link>
           </Button>
         </div>
+        <Image
+          src="https://placehold.co/1200x400.png"
+          alt="Abstract background pattern"
+          layout="fill"
+          objectFit="cover"
+          className="absolute inset-0 -z-0 opacity-10"
+          data-ai-hint="abstract pattern"
+        />
       </section>
     </div>
   );
