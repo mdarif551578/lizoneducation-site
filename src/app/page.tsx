@@ -65,7 +65,7 @@ export default function Home() {
           className="absolute inset-0 -z-10"
           data-ai-hint="students learning"
         />
-        <div className="absolute inset-0 -z-10 bg-black/70" />
+        <div className="absolute inset-0 -z-10 bg-black/80" />
         <div className="container mx-auto px-4 md:px-6 text-center">
           <div className="max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white font-headline">
@@ -154,7 +154,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="enroll" className="py-16 md:py-24 bg-primary/10 relative overflow-hidden">
+      <section id="enroll" className="py-16 md:py-24 bg-card relative overflow-hidden">
         <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold font-headline text-white">Ready to Start Your Journey?</h2>
           <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
@@ -174,6 +174,7 @@ export default function Home() {
           className="absolute inset-0 -z-0 opacity-10"
           data-ai-hint="abstract pattern"
         />
+        <div className="absolute inset-0 -z-0 bg-black/80"></div>
       </section>
     </div>
   );

@@ -115,11 +115,11 @@ const StudyTipsGenerator = () => {
         <p className="text-muted-foreground">
           Select an area you want to improve, and our AI tutor will provide you with personalized preparation tips to boost your score.
         </p>
-        <form onSubmit={handleStartChat} className="space-y-4">
+        <form onSubmit={handleStartChat} className="space-y-4 pt-4">
           <div>
             <Label htmlFor="area-of-focus">Area of Focus</Label>
             <Select onValueChange={(value: AreaOfFocus) => setAreaOfFocus(value)} value={areaOfFocus} disabled={chatStarted}>
-              <SelectTrigger id="area-of-focus" className="w-full">
+              <SelectTrigger id="area-of-focus" className="w-full h-9 mt-2">
                 <SelectValue placeholder="Select an area..." />
               </SelectTrigger>
               <SelectContent>
