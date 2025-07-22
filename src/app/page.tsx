@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -55,15 +56,16 @@ const testimonials = [
 export default function Home() {
   return (
     <div className="flex flex-col">
-      <section className="relative w-full py-20 md:py-32 lg:py-40 bg-gray-900/50">
+      <section className="relative w-full py-20 md:py-32 lg:py-40">
         <Image
           src="https://placehold.co/1920x1080.png"
           alt="Students learning in a classroom"
           layout="fill"
           objectFit="cover"
-          className="absolute inset-0 -z-10 opacity-30"
+          className="absolute inset-0 -z-10"
           data-ai-hint="students learning"
         />
+        <div className="absolute inset-x-0 bottom-0 h-1/2 -z-10 bg-gradient-to-t from-black/80 to-transparent" />
         <div className="container mx-auto px-4 md:px-6 text-center">
           <div className="max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white font-headline">
