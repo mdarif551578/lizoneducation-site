@@ -145,7 +145,7 @@ const StudyTipsGenerator = () => {
       <Card className="shadow-lg bg-card h-[500px] flex flex-col">
         <CardHeader>
           <div className="flex items-center gap-3">
-            <Lightbulb className="w-6 h-6 text-accent" />
+            <Lightbulb className="w-6 h-6 text-primary" />
             <CardTitle>Your AI Tutor Chat</CardTitle>
           </div>
           <CardDescription>

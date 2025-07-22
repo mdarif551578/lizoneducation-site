@@ -97,7 +97,7 @@ export default function Home() {
                 <CardHeader>
                   <div className="flex justify-between items-start">
                     <CardTitle>{course.title}</CardTitle>
-                    {course.badge && <Badge variant="secondary" className="bg-accent text-accent-foreground">{course.badge}</Badge>}
+                    {course.badge && <Badge variant="secondary" className="bg-primary text-primary-foreground">{course.badge}</Badge>}
                   </div>
                 </CardHeader>
                 <CardContent className="flex-grow">
@@ -134,7 +134,7 @@ export default function Home() {
                       <p className="font-semibold">{testimonial.name}</p>
                       <div className="flex">
                         {Array.from({ length: testimonial.rating }).map((_, i) => (
-                          <Star key={i} className="h-4 w-4 text-accent-foreground fill-accent" />
+                          <Star key={i} className="h-4 w-4 text-primary fill-primary" />
                         ))}
                       </div>
                     </div>
