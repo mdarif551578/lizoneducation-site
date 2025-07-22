@@ -42,10 +42,11 @@ Continue the conversation based on the history. Provide a helpful and concise re
 
 Conversation History:
 {{#each history}}
-{{#if (eq role 'user')}}User: {{content.[0].text}}{{/if}}
-{{#if (eq role 'model')}}Tutor: {{content.[0].text}}{{/if}}
+{{#if (eq role "user")}}User: {{content.[0].text}}{{/if}}
+{{#if (eq role "model")}}Tutor: {{content.[0].text}}{{/if}}
 {{/each}}
-
+User: {{areaOfFocus}}
+Tutor:
 {{else}}
 Start by providing initial, comprehensive tips for the following area of focus: {{{areaOfFocus}}}.
 {{/if}}
@@ -59,7 +60,18 @@ const generateIeltsTipsFlow = ai.defineFlow(
     outputSchema: GenerateIeltsTipsOutputSchema,
   },
   async input => {
-    const {output} = await prompt(input);
+    // Add boolean flags for Handlebars
+    const historyWithRoles = input.history?.map(item => ({
+      ...item,
+      isUser: item.role === 'user',
+      isModel: item.role === 'model'
+    }));
+    
+    const {output} = await prompt({
+        ...input,
+        history: historyWithRoles as any, // Cast to any to avoid type issues with the added properties
+    });
+
     return output!;
   }
 );
