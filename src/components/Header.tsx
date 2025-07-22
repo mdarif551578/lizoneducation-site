@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
@@ -17,7 +17,12 @@ const navLinks = [
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isClient, setIsClient] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -41,43 +46,45 @@ const Header = () => {
           ))}
         </nav>
         <div className="md:hidden">
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu aria-hidden="true" />
-                <span className="sr-only">Open Menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[280px]">
-                <SheetHeader className="p-4 border-b flex-row items-center justify-between">
-                   <SheetTitle>
-                     <Link href="/" className="flex items-center gap-2 font-bold text-lg" onClick={() => setIsOpen(false)}>
-                      <BookOpenCheck className="h-6 w-6 text-primary" />
-                      <span>Lizon IELTS Hub</span>
-                    </Link>
-                   </SheetTitle>
-                   <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
-                      <X />
-                      <span className="sr-only">Close Menu</span>
-                   </Button>
-                </SheetHeader>
-                <nav className="flex flex-col gap-4 p-4">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setIsOpen(false)}
-                      className={cn(
-                        'text-lg font-medium transition-colors hover:text-primary',
-                        pathname === link.href ? 'text-primary' : 'text-foreground'
-                      )}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </nav>
-            </SheetContent>
-          </Sheet>
+          {isClient && (
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Menu aria-hidden="true" />
+                  <span className="sr-only">Open Menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[280px]">
+                  <SheetHeader className="p-4 border-b flex-row items-center justify-between">
+                     <SheetTitle>
+                       <Link href="/" className="flex items-center gap-2 font-bold text-lg" onClick={() => setIsOpen(false)}>
+                        <BookOpenCheck className="h-6 w-6 text-primary" />
+                        <span>Lizon IELTS Hub</span>
+                      </Link>
+                     </SheetTitle>
+                     <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
+                        <X />
+                        <span className="sr-only">Close Menu</span>
+                     </Button>
+                  </SheetHeader>
+                  <nav className="flex flex-col gap-4 p-4">
+                    {navLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setIsOpen(false)}
+                        className={cn(
+                          'text-lg font-medium transition-colors hover:text-primary',
+                          pathname === link.href ? 'text-primary' : 'text-foreground'
+                        )}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </nav>
+              </SheetContent>
+            </Sheet>
+          )}
         </div>
       </div>
     </header>
