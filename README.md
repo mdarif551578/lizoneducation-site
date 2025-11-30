@@ -82,3 +82,48 @@ This project is configured for static site generation, which means you can deplo
     Alternatively, you can connect your Git repository (e.g., on GitHub) to Cloudflare Pages for automatic deployments.
     - **Build command:** `npm run build`
     - **Build output directory:** `out`
+
+## SEO Enhancements
+
+### robots.txt
+
+```text
+User-agent: *
+Allow: /
+Sitemap: https://lizoneducation.pages.dev/sitemap.xml
+```
+
+- **Purpose:** Allows all crawlers to index the site and points them to the sitemap.
+
+### sitemap.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://lizoneducation.pages.dev/</loc>
+  </url>
+  <url>
+    <loc>https://lizoneducation.pages.dev/about</loc>
+  </url>
+  <url>
+    <loc>https://lizoneducation.pages.dev/contact</loc>
+  </url>
+  <url>
+    <loc>https://lizoneducation.pages.dev/courses</loc>
+  </url>
+</urlset>
+```
+
+- **Purpose:** Provides search engines with a definitive list of discoverable pages, improving crawl efficiency and SEO.
+
+### Verification
+
+Both files are served from the site root and can be accessed at:
+
+- `https://lizoneducation.pages.dev/robots.txt`
+- `https://lizoneducation.pages.dev/sitemap.xml`
+
+These URLs return the expected content, confirming successful deployment.
+
+*For any future updates to site structure, remember to regenerate `sitemap.xml` to reflect new or removed pages.*
